@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status name:</strong>
+  <%= @delivery_status.status_name %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_status_path(@delivery_status) %> |
+<%= link_to 'Back', delivery_statuses_path %>

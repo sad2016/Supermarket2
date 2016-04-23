@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gourmet Supermarket</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<%= link_to('products', products_path) %>
+<%= link_to('product_categories', categories_path) %>
+<%= link_to('delivery_status', delivery_statuses_path) %>
+<%= link_to('invoices', invoices_path) %>
+<%= link_to('payment type', payment_types_path) %>
+<%= link_to('product units', product_units_path) %>
+<% link_to('mission', mission_index_path)%>
+
+
+<%= yield %>
+
+</body>
+</html>
