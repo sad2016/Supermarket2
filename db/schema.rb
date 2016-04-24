@@ -81,12 +81,6 @@ ActiveRecord::Schema.define(version: 20160424023906) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["product_unit_id"], name: "index_products_on_product_unit_id", using: :btree
 
-  create_table "sites", force: :cascade do |t|
-    t.string   "index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "invoices", "delivery_statuses"
   add_foreign_key "invoices", "payment_types"
   add_foreign_key "products", "categories"
