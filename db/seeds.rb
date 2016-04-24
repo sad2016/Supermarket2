@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Category.create(category_name:"Bakery");
+Category.create(category_name:"Dry Grocery");
+Category.create(category_name:"1");
+Category.create(category_name:"2");
+
+ProductUnit.create(product_unit_name:"kilogram", product_unit_abbreviation:"kg.");
+ProductUnit.create(product_unit_name:"gram", product_unit_abbreviation:"g.");
+
+
