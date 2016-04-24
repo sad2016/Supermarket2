@@ -35,6 +35,12 @@
       <%= f.label :category_id %><br>
       <%= f.collection_select :category_id,Category.all,:id,:category_name, {:prompt => 'Please select category'} %>
     </div>
+
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

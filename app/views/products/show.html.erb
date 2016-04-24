@@ -25,5 +25,12 @@
   <%= @product.category.category_name %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @product.description.capitalize %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -4,13 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    if params[:product_name].nil?
+    if params[:searchbox].nil?
       @products = Product.all
     else
-      params[:product_name].downcase!
-      puts "Downcase"
-      puts params[:product_name]
-      @products = Product.where("product_name LIKE ?", "%#{params[:product_name]}%")
+      params[:searchbox].downcase!
+      @products = Product.where("product_name LIKE ? OR description LIKE ?", "%#{params[:searchbox]}%" , "%#{params[:searchbox]}%")
     end
 
   end
@@ -33,6 +31,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     params[:product][:product_name].downcase!
+    params[:product][:description].downcase!
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -49,6 +48,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+
+    params[:product][:product_name].downcase!
+    params[:product][:description].downcase!
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -78,6 +80,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_name, :price, :amount_in_stock, :product_unit_id, :category_id,:package_size)
+      params.require(:product).permit(:product_name, :price, :amount_in_stock, :product_unit_id, :category_id,:package_size,:description,:searchbox)
     end
 end
