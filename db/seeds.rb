@@ -13,5 +13,6 @@ Category.create(category_name:"2");
 
 ProductUnit.create(product_unit_name:"kilogram", product_unit_abbreviation:"kg.");
 ProductUnit.create(product_unit_name:"gram", product_unit_abbreviation:"g.");
+ProductUnit.create(product_unit_name:"pieces", product_unit_abbreviation:"pcs.");
 
 
