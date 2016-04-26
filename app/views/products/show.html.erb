@@ -1,4 +1,59 @@
 <p id="notice"><%= notice %></p>
+<div class="span9">
+  <div class="row">
+    <div class="span5">
+      <div id="items-carousel" class="carousel slide mbottom0">
+        <div class="carousel-inner">
+          <div class="active item">
+            <img class="media-object" src="holder.js/470x310" alt="" />
+          </div>
+
+          <div class="item">
+            <img class="media-object" src="holder.js/470x310" alt="" />
+          </div>
+
+          <div class="item">
+            <img class="media-object" src="holder.js/470x310" alt="" />
+          </div>
+        </div>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+
+    <div class="span4">
+      <h4><%= @product.product_name %></h4>
+      <h5>Product id : <%= @product.id %></h5>
+      <p> <strong>Product unit:</strong> <%= @product.package_size %> <%= @product.product_unit.product_unit_abbreviation %> per package </p>
+      <p> <strong>Category:</strong> <%= @product.category.category_name %> </p>
+      <p><%= @product.description.capitalize %>
+      <h4><%= @product.price %> &nbsp;THB</h4>
+      <% if (@product.amount_in_stock < 1)%>
+      <p>
+        Availability: <font color="red">Out of Stock</font>
+      </p>
+      <% elsif (@product.amount_in_stock < 20) %>
+          Availability: <font color="green"><%= @product.amount_in_stock %> left in Stock</font>
+          <% else %>
+          Availability: <font color="green">In Stock</font>
+      <%end%>
+      <form>
+
+        <label>
+          <input type="text" id="quantity" name="quantity" value="1" class="span1" />&nbsp;Qty
+        </label>
+        <button class="btn btn-primary">Add to Chart</button>
+      </form>
+      <a href="#">+ Add to whishlist</a>
+
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<hr />
 
 <p>
   <strong>Product name:</strong>

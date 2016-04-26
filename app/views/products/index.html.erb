@@ -17,7 +17,16 @@
         <div class="caption">
           <h4><%= product.product_name.capitalize %></h4>
           <p><%= product.package_size %>&nbsp;<%= product.product_unit.product_unit_name %></p>
-          <p><strike><%= product.price %>THB</strike>&nbsp;<%= product.price %>THB</p>
+          <% if (product.amount_in_stock < 1)%>
+              <p>
+                Availability: <font color="red">Out of Stock</font>
+              </p>
+          <% elsif (product.amount_in_stock < 20) %>
+              Availability: <font color="green"><%= product.amount_in_stock %> left in Stock</font>
+          <% else %>
+              Availability: <font color="green">In Stock</font>
+          <%end%>
+          <p><strike><%= product.price %> THB</strike>&nbsp;<%= product.price %> THB</p>
           <%= link_to 'View', product, class:"btn btn-primary" %>
           <a class="btn btn-success" href="#">Add to Cart</a>
         </div>
